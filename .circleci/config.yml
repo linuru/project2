@@ -1,0 +1,16 @@
+version: 1
+jobs:
+  build:
+    docker:
+      - image: ubuntu:disco
+
+    steps:
+      - checkout
+
+      - run:
+          name: Greeting
+          command: bash hello.sh
+
+      - run:
+          name: Print the Current Time
+command: date
