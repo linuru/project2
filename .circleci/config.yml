@@ -27,6 +27,7 @@ jobs:
       # other common Python testing frameworks include pytest and nose
       # https://pytest.org
       # https://nose.readthedocs.io
+	test:      
       - run:
           name: run tests
           command: |
@@ -36,3 +37,10 @@ jobs:
       - store_artifacts:
           path: test-reports
           destination: test-reports
+workflows:
+  build_test:
+    jobs:
+      - build
+      - test:
+        requires:
+          - build
